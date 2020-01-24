@@ -48,20 +48,19 @@ public class swea1974 {
 			}
 		}
 		//구역 검사
-		for(int i=0;i<9;i++) {				
-			for(int j=0;j<9;j++) {					
+		for(int i=0;i<3;i++) {				
+			for(int j=0;j<3;j++) {					
 				Arrays.fill(chk, false);					
 				for(int k=0;k<3;k++) {
-					for(int l=0;l<3;l++) {	
-						if(chk[a[i+k][j+l]]==true) {						
+					for(int l=0;l<3;l++) {						
+						if(chk[a[3*i+k][3*j+l]]==true) {						
 							return false;
 						}
-						chk[a[i+k][j+l]]=true;
+						chk[a[3*i+k][3*j+l]]=true;						
+
 					}
-				}
-				j=j+2;	
-			}
-			i+=2;
+				}				
+			}			
 		}
 		return true;
 	}
