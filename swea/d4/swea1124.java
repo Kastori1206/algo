@@ -13,7 +13,6 @@ public class swea1124{
 			String result = doPostOrder(str);
 			System.out.println("#"+test_case+" "+doCalc(result));
 		}
-
 	}
 	
 	static int doCalc(String str) {
