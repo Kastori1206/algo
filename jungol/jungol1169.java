@@ -42,7 +42,7 @@ public class jungol1169 {
 		}
 		for(int i =arr[idx-1];i<=6;i++) {
 			arr[idx] = i;
-			dfs2(idx+1,N-1);
+			dfs2(idx+1,N-1);           
 		}   
 	}
 	static void dfs3(int idx ,int N,boolean[] b) {

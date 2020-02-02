@@ -24,29 +24,29 @@ public class jungol1809 {
 			int h = sc.nextInt();
 			
 			if(st.isEmpty()) {
-//				a[i] =0;
-				System.out.print(0+" ");
+				a[i] =0;
+
 			}else {
 				while(!st.empty()) {
 					if(st.peek().high<h) {
 						st.pop();
 						if(st.isEmpty()) {
-//							a[i]=0;
-							System.out.print(0+" ");
+							a[i]=0;
+
 						}
 					}else {
-//						a[i] = st.peek().idx;
-						System.out.print(st.peek().idx+" ");
+						a[i] = st.peek().idx;
+
 						break;
 					}
 				}
 			}
 			st.push(new pair(h,i));
 		}
+
+		for(int i =1;i<=N;i++) {
+			System.out.print(a[i]+" ");
+		}
 		
-//		for(int i =1;i<=N;i++) {
-//			System.out.print(a[i]+" ");
-//		}
-//		
 	}
 }
