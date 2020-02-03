@@ -32,13 +32,11 @@ public class jungol1809 {
 						st.pop();
 						if(st.isEmpty()) {
 							a[i]=0;
-
 						}
 					}else {
 						a[i] = st.peek().idx;
-
 						break;
-					}
+					}					
 				}
 			}
 			st.push(new pair(h,i));

@@ -10,7 +10,9 @@ public class baek15651 {
             StringBuilder sb = new StringBuilder();
             for (int i=0; i<m; i++) {
                 sb.append(a[i]);
-                if (i != m-1) sb.append(" ");
+                if (i != m-1) {
+                	sb.append(" ");
+                }
             }
             sb.append("\n");
             return sb;

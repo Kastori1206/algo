@@ -47,14 +47,14 @@ public class Test5 {
 
 		for(int i =1;i<=N;i++) {
 			for(int j =1;j<=N;j++) {
-				if(map[i][j]==0) {
+				if(map[i][j]==0) {//바둑판이 0이면 검사할필요없음
 					continue;
 				}
 				for(int k=0;k<4;k++) {
 					cnt = 0;
-					if(chk(j-dy[k],i-dx[k], map[i][j])){						
-						go(j,i,k,map[i][j]);
-						if(cnt ==5) {
+					if(chk(j-dy[k],i-dx[k], map[i][j])){//좌, 좌상,	상,우상 바둑돌이 없으면	
+						go(j,i,k,map[i][j]);//검사
+						if(cnt ==5) {//돌이 5개면
 							System.out.println(map[i][j]);
 							System.out.println(i+" "+j);
 							return;
@@ -62,12 +62,8 @@ public class Test5 {
 					}
 				}
 			}
-		}
-		
-		System.out.println("0");
-		
-		
-		
+		}		
+		System.out.println("0");	
 	}
 
 }

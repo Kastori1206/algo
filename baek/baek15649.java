@@ -9,13 +9,17 @@ public class baek15649 {
 	        if (index == m) {
 	            for (int i=0; i<m; i++) {
 	                System.out.print(a[i]);
-	                if (i != m-1) System.out.print(' ');
+	                if (i != m-1) {
+	                	System.out.print(' ');
+	                }
 	            }
 	            System.out.println();
 	            return;
 	        }
 	        for (int i=1; i<=n; i++) {
-	            if (c[i]) continue;
+	            if (c[i]) {
+	            	continue;
+	            }
 	            c[i] = true;
 	            a[index] = i;
 	            go(index+1, n, m);
