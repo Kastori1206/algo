@@ -1,6 +1,5 @@
 package baek;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -11,11 +10,11 @@ import java.util.Scanner;
 
 class Pair{
 	int x;
-	int y;
+	int y;	
 	public Pair(int x, int y) {
 		super();
 		this.x = x;
-		this.y = y;
+		this.y = y;		
 	}
 	
 }
@@ -49,13 +48,7 @@ public class baek2667 {
 				bfs(map,v,a,j,i,N,++cnt);
 			}
 		}
-//		
-//		for(int i =0;i<N;i++) {
-//			for(int j =0;j<N;j++) {
-//				System.out.print(v[i][j] + " ");
-//			}
-//			System.out.println();
-//		}
+
 		System.out.println(cnt);
 		Arrays.sort(result);//오름차순 정렬
 		Collections.sort(a);
@@ -88,25 +81,26 @@ public class baek2667 {
 	static void bfs(int[][] map, int[][] v,ArrayList<Integer> a,int x, int y, int N, int cnt ) {
 		Queue<Pair> q = new LinkedList<>();
 		q.offer(new Pair(x,y));
-		int c =1;
-		Pair temp=null;
+		int c = 1;
+		v[y][x]= cnt;
+		Pair temp = null;
 		while(!q.isEmpty()) {
 			temp = q.poll();
-			v[temp.y][temp.x] = cnt;
-			c++;			
-			
 			for(int i =0;i<4;i++) {
-				int nx = temp.x + dx[i]; int ny =temp.y + dy[i];
+				int nx = temp.x + dx[i];
+				int ny = temp.y + dy[i];
 				if(isBound(nx,ny,N)) {
 					continue;
 				}
-				if(map[ny][nx] ==0) {
+				if(map[ny][nx] == 0) {
 					continue;
 				}
-				if(v[ny][nx] !=0) {
+				if(v[ny][nx] != 0) {
 					continue;
 				}
 				q.offer(new Pair(nx,ny));				
+				v[ny][nx] = cnt;
+				c++;
 			}
 		}
 		a.add(c);
