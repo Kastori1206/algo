@@ -45,8 +45,8 @@ public class swea1230 {
 				}
 			}
 			System.out.print("#"+ test_case+" ");
-			for(Integer n : list) {
-				System.out.print(n +" ");
+			for(int i=0;i<10;i++) {
+				System.out.print(list.get(i));
 			}
 			System.out.println();
 		}
