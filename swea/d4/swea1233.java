@@ -2,11 +2,12 @@ package swea.d4;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class swea1233 {
-	static char[] result;
-	static int cnt;
+public class swea1233 {	
+	static Queue<Character> q ;
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
@@ -14,21 +15,35 @@ public class swea1233 {
 		for(int t =1;t<=10;t++) {
 			st = new StringTokenizer(br.readLine());
 			int N = Integer.parseInt(st.nextToken());
-			char[] tree = new char[N+1];
-			result = new char[N+1];
+			char[] tree = new char[N+1];			
+			q = new LinkedList<Character>();
 			for(int i=1;i<=N;i++) {
 				st = new StringTokenizer(br.readLine());
 				st.nextToken();
 				tree[i] = st.nextToken().charAt(0);
 			}
-			cnt = 1;
+			
 			postOrder(tree, 1);
-			for(int i=1;i<=N;i++) {				
-				System.out.print(result[i] +" ");
+			
+			char a = q.poll();
+			char b = q.poll();
+			char c = q.poll();
+			boolean flag = true;
+			if(calc(a,b,c)==1) {
+				while(!q.isEmpty()) {
+					b = q.poll();
+					c =q.poll();
+					if(calc(a,b,c)==0) {
+						flag =false;
+						break;
+					}
+				}
 			}
-			System.out.println();
-			
-			
+			if(flag) {
+				System.out.println(String.format("#%d 1",t));
+			}else {
+				System.out.println(String.format("#%d 0",t));
+			}			
 		}
 	}
 	
@@ -37,14 +52,14 @@ public class swea1233 {
 			return;
 		}
 		postOrder(tree, index*2);
-		result[cnt++] = tree[index]; 
+		q.offer(tree[index]);
 		postOrder(tree, index*2+1);
 	}
 	static int calc(char a, char b, char c) {
-		if(Character.isDigit(a) && Character.isDigit(b) && !Character.isDigit(c)) {
+		if(Character.isDigit(a) && Character.isDigit(c) && !Character.isDigit(b)) {
 			return 1;
 		}else {
-			return 2;
+			return 0;
 		}	
 	}
 }
