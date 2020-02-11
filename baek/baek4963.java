@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class beak4963 {
+public class baek4963 {
 	//상,하,좌,우,우상,우하,좌상,좌하
 	static int[] dx = {0,0,-1,1,1,1,-1,-1}; 
 	static int[] dy = {-1,1,0,0,-1,1,1,-1};
