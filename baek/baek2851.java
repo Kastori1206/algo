@@ -2,7 +2,7 @@ package baek;
 
 import java.util.Scanner;
 
-public class beak2851 {
+public class baek2851 {
 	public static void main(String[] args) {
 		Scanner sc =new Scanner(System.in);
 		int[] arr = new int[10];
