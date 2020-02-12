@@ -9,9 +9,7 @@ public class baek2116 {
 	public static void main(String[] args) throws Exception{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
-		int result =0;
-		
-		
+		int result =0;	
 		
 		int N = Integer.parseInt(st.nextToken());
 		int[][] arr = new int[N][6];
@@ -85,6 +83,7 @@ public class baek2116 {
 		}
 		return -1;
 	}
+	
 	static void print(int N) {
 		for(int i =0;i<N;i++) {
 			for(int j =0;j<6;j++) {
