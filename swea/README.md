@@ -1,7 +1,10 @@
 ![](https://swexpertacademy.com/html/main/images/sw_img/main_logo.png)
 
+> - [D2](#d2)  
+> - [D3](#d3)  
+> - [D4](#d4)  
 
-[toc]
+
 ## D2 
 
 - [1204.\[S/W 문제해결 기본\] 1일차 - 최빈수 구하기](https://gitlab.com/kastori1990/algo/-/blob/master/swea/d2/swea1204.java)
