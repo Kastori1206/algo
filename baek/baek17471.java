@@ -3,12 +3,14 @@ package baek;
 import java.util.Scanner;
 
 public class baek17471 {
+	static boolean[] v;
+	static int n;
+	static int[][] map;
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		
-		int n = sc.nextInt();
+		Scanner sc = new Scanner(System.in);		
+		n = sc.nextInt();
 		int[] w = new int[n+1];
-		int[][] map = new int[n+1][n+1];
+		map = new int[n+1][n+1];
 		
 		for(int i =1;i<=n;i++) {
 			w[i] = sc.nextInt();
@@ -19,14 +21,24 @@ public class baek17471 {
 				map[i][sc.nextInt()] =1;
 			}
 		}
+		v= new boolean[n+1];
+		dfs(1);
+//		for(int i =1;i<=n;i++) {
+//			for(int j =1;j<=n;j++) {
+//				System.out.print(map[i][j]+ " ");
+//			}
+//			System.out.println();
+//		}
 		
-		for(int i =1;i<=n;i++) {
-			for(int j =1;j<=n;j++) {
-				System.out.print(map[i][j]+ " ");
+		
+	}
+	static void dfs(int x) {
+		v[x]=true;
+		System.out.println(x);
+		for(int i=1;i<=4;i++) {
+			if(map[x][i]==1 &&v[i]==false) {
+				dfs(i);
 			}
-			System.out.println();
 		}
-		
-		
 	}
 }
