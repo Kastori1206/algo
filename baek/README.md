@@ -32,9 +32,11 @@
 | [2941.크로아티아 알파벳](https://gitlab.com/kastori1990/algo/-/blob/master/baek/baek2941.java) | https://www.acmicpc.net/problem/2941  |
 | [2991.사나운 개](https://gitlab.com/kastori1990/algo/-/blob/master/baek/baek2991.java) | https://www.acmicpc.net/problem/2991  |
 | [2999.비밀 이메일](https://gitlab.com/kastori1990/algo/-/blob/master/baek/baek2999.java) | https://www.acmicpc.net/problem/2999  |
+| [3109.빵집](https://gitlab.com/kastori1990/algo/-/blob/master/baek/baek3109.java) | https://www.acmicpc.net/problem/3109 |
 | [3985.롤 케이크](https://gitlab.com/kastori1990/algo/-/blob/master/baek/baek3985.java) | https://www.acmicpc.net/problem/3985  |
 | [4963.섬의 개수](https://gitlab.com/kastori1990/algo/-/blob/master/baek/baek4963.java) | https://www.acmicpc.net/problem/4963  |
 | ~~[5549.행성 탐사](https://gitlab.com/kastori1990/algo/-/blob/master/baek/baek5549.java)~~ | https://www.acmicpc.net/problem/5549  |
+| [7576.토마토](https://gitlab.com/kastori1990/algo/-/blob/master/baek/baek7576.java) | https://www.acmicpc.net/problem/7576  |
 | [8320.직사각형을 만드는 방법](https://gitlab.com/kastori1990/algo/-/blob/master/baek/baek8320.java) | https://www.acmicpc.net/problem/8320  |
 | [8958.OX퀴즈](https://gitlab.com/kastori1990/algo/-/blob/master/baek/baek8958.java) | https://www.acmicpc.net/problem/8958  |
 
