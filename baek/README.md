@@ -20,9 +20,11 @@
 | [15652.N과 M(4)](https://gitlab.com/kastori1990/algo/-/blob/master/baek/baek15652.java) | https://www.acmicpc.net/problem/15652 |
 | [1592.영식이와 친구들](https://gitlab.com/kastori1990/algo/-/blob/master/baek/baek1592.java) | https://www.acmicpc.net/problem/1592  |
 | [1717.집합의 표현](https://gitlab.com/kastori1990/algo/-/blob/master/baek/baek1717.java) | https://www.acmicpc.net/problem/1717  |
+| [17135.OX퀴즈](https://gitlab.com/kastori1990/algo/-/blob/master/baek/baek17135.java) | https://www.acmicpc.net/problem/17135  |
 | [17413.단어 뒤집기2](https://gitlab.com/kastori1990/algo/-/blob/master/baek/baek17413.java) | https://www.acmicpc.net/problem/17413 |
 | [2116.주사위 쌓기](https://gitlab.com/kastori1990/algo/-/blob/master/baek/baek2116.java) | https://www.acmicpc.net/problem/2116  |
 | [2309.일곱 난쟁이](https://gitlab.com/kastori1990/algo/-/blob/master/baek/baek2309.java) | https://www.acmicpc.net/problem/2309  |
+ [2567.색종이](https://gitlab.com/kastori1990/algo/-/blob/master/baek/baek2563.java) | https://www.acmicpc.net/problem/2567  |
 | [2567.색종이 - 2](https://gitlab.com/kastori1990/algo/-/blob/master/baek/baek2567.java) | https://www.acmicpc.net/problem/2567  |
 | [2628.종이자르기](https://gitlab.com/kastori1990/algo/-/blob/master/baek/baek2628.java) | https://www.acmicpc.net/problem/2628  |
 | [2667.단지번호붙이기](https://gitlab.com/kastori1990/algo/-/blob/master/baek/baek2667.java) | https://www.acmicpc.net/problem/2667  |
