@@ -55,10 +55,13 @@
 - [9229.한빈이와 Spot Mart](https://gitlab.com/kastori1990/algo/-/blob/master/swea/d3/swea9229.java)
 
 ## D4
-
 - [1210.\[S/W 문제해결 기본\] 2일차 - Ladder1](https://gitlab.com/kastori1990/algo/-/blob/master/swea/d4/swea1210.java)
+- [1223.계산기2](https://gitlab.com/kastori1990/algo/-/blob/master/swea/d4/swea1223.java)
+- [1224.계산기3](https://gitlab.com/kastori1990/algo/-/blob/master/swea/d4/swea1224.java)
 - [1231.\[S/W 문제해결 기본\] 9일차 - 중위순회](https://gitlab.com/kastori1990/algo/-/blob/master/swea/d4/swea1231.java)
 - [1233.\[S/W 문제해결 기본\] 9일차 - 사칙연산 유효성 검사](https://gitlab.com/kastori1990/algo/-/blob/master/swea/d4/swea1233.java)
+- [1258.\[S/W 문제해결 응용\] 7일차 - 행렬 찾기](https://gitlab.com/kastori1990/algo/-/blob/master/swea/d4/swea1258.java)
 - [3289.서로소 집합](https://gitlab.com/kastori1990/algo/-/blob/master/swea/d4/swea3289.java)
-
+- [4408.자기 방으로 돌아가기](https://gitlab.com/kastori1990/algo/-/blob/master/swea/d4/swea4408.java)
+- [7465.창용 마을 무리의 개수](https://gitlab.com/kastori1990/algo/-/blob/master/swea/d4/swea7465.java)
 

@@ -1,9 +1,9 @@
 package swea.d4;
 
-import java.util.Stack;
 import java.util.Scanner;
+import java.util.Stack;
 
-public class swea1124{
+public class swea1223{
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);	
 
@@ -13,6 +13,7 @@ public class swea1124{
 			String result = doPostOrder(str);
 			System.out.println("#"+test_case+" "+doCalc(result));
 		}
+
 	}
 	
 	static int doCalc(String str) {
@@ -43,19 +44,8 @@ public class swea1124{
 		char[] crr = s.toCharArray();
 		Stack<Character> stack = new Stack<Character>();
 		for(char ch : crr) {
-			if(ch=='(') {
-				stack.push(ch);
-			}else if(ch>='0' && ch<='9') {
-				result+=ch;
-			}else if(ch==')') {
-				char temp;
-				while(!stack.isEmpty()) {
-					temp = stack.pop();
-					if(temp=='(') {
-						break;
-					}
-					result += temp;
-				}
+			if(ch>='0' && ch<='9') {
+				result+=ch;			
 			}else {
 				while(!stack.isEmpty()) {
 					if(getPriority(ch) <= getPriority(stack.peek())) {
