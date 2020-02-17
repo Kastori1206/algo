@@ -2,12 +2,8 @@ package swea.d3;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.StringTokenizer;
-
-
-
 /*
  * [S/W 문제해결 응용] 1일차 - 단순 2진 암호코드 
  */
