@@ -7,11 +7,11 @@ import java.util.List;
 import java.util.Scanner;
 
 /*
- * 	15664.N과 M(11)
- * https://www.acmicpc.net/problem/15665
+ * 	15664.N과 M(12)
+ * https://www.acmicpc.net/problem/15666
  * 
  */
-public class baek15665 {	
+public class baek15666 {	
 	static List<Integer> list;
 	static int[] result;
 	public static void main(String[] args) {
@@ -31,9 +31,9 @@ public class baek15665 {
 			
 		}
 		Collections.sort(list);
-		System.out.println(dfs(0,M));
+		System.out.println(dfs(0,0,M));
 	}
-	static StringBuffer dfs(int index, int m) {
+	static StringBuffer dfs(int index,int start, int m) {
 		if(index == m) {
 			StringBuffer sb = new StringBuffer();
 			for(int i=0;i<m;i++) {
@@ -46,9 +46,9 @@ public class baek15665 {
 			return sb;
 		}
 		StringBuffer ans = new StringBuffer();
-		for(int i =0;i<list.size();i++) {
+		for(int i =start;i<list.size();i++) {
 			result[index] = list.get(i);
-			ans.append(dfs(index+1,m));			
+			ans.append(dfs(index+1,i,m));			
 		}
 		return ans;
 	}	
