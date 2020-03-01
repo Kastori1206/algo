@@ -5,7 +5,10 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-
+/*
+ * 2146.다리만들기
+ * https://www.acmicpc.net/problem/2146
+ */
 
 public class baek2146 {
 	static int[][] map;

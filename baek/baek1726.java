@@ -3,7 +3,10 @@ package baek;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
-
+/*
+ * 로봇
+ * https://www.acmicpc.net/problem/1726
+ */
 public class baek1726 {
 	static int[][] map;
 	static Queue<Pair> q;

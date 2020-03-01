@@ -6,6 +6,10 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
+/*
+ * 2589. 보물섬
+ * https://www.acmicpc.net/problem/2589
+ */
 
 public class baek2589 {
 	static int[] dx = {0, 0, -1, 1};

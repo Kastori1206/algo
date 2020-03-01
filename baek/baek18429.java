@@ -2,7 +2,10 @@ package baek;
 
 import java.util.Arrays;
 import java.util.Scanner;
-
+/*
+ * 18429. 근손실
+ * https://www.acmicpc.net/problem/18429
+ */
 public class baek18429 {
 	static int cnt;
 	static int[] arr;

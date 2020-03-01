@@ -1,10 +1,13 @@
 ![](https://swexpertacademy.com/html/main/images/sw_img/main_logo.png)
 
+> - [A형](#A형)
 > - [D2](#d2)  
 > - [D3](#d3)  
 > - [D4](#d4)  
 
-
+## A형
+- [1952.수영장](https://gitlab.com/kastori1990/algo/-/blob/master/swea/swea1952.java)
+- [2115.꿀벌](https://gitlab.com/kastori1990/algo/-/blob/master/swea/swea2115.java)
 ## D2 
 
 - [1204.\[S/W 문제해결 기본\] 1일차 - 최빈수 구하기](https://gitlab.com/kastori1990/algo/-/blob/master/swea/d2/swea1204.java)

@@ -7,7 +7,10 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 
 import javax.management.Query;
-
+/*
+ * 3055.탈출
+ * https://www.acmicpc.net/problem/3055
+ */
 public class baek3055 {
 	static class Pair{
 		int x;

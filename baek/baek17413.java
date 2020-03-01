@@ -2,7 +2,10 @@ package baek;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-
+/*
+ * 17413. 단어뒤집기
+ * 
+ */
 public class baek17413 {
 	public static void main(String[] args) throws Exception{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

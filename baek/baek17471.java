@@ -1,7 +1,10 @@
 package baek;
 
 import java.util.Scanner;
-
+/*
+ * 17471. 게리멘더링
+ * https://www.acmicpc.net/problem/17471
+ */
 public class baek17471 {
 	static boolean[] v;
 	static int n;
