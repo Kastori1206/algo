@@ -56,7 +56,6 @@ public class baek15685 {
 				list.add((list.get(j) + 1) % 4);
 			}
 		}
-
 		map[y][x] = true;
 		for (Integer i : list) {
 			y += dy[i];
