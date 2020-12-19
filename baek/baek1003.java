@@ -25,8 +25,6 @@ public class baek1003 {
         for (int t = 0; t < T; t++) {
             int n = Integer.parseInt(br.readLine());
             System.out.println(result[n][0] + " " + result[n][1]);
-        }
-        
-        System.out.println(0%2);
+        }        
     }
 }
