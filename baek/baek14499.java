@@ -54,8 +54,8 @@ public class baek14499 {
 				map[nr][nc] = 0;
 			}
 			
-			x = nr;
-			y = nc;
+			y = nr;
+			x = nc;
 			sb.append(dice[1] + "\n");
 		}
 		System.out.println(sb.toString());
