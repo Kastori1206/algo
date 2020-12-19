@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 
 /*
  *피보나치 함수
- *https://www.acmicpc.net/problem/1003
+ *https://www.acmicpc.net/problem/1003 
  */
 public class baek1003 {
     static int[][] result;
