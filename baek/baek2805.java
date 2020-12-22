@@ -32,13 +32,14 @@ public class baek2805 {
 			
 			if(res<M) {
 				high = mid -1;
-			}else if(res>M) {
+			}else if(res>=M) {
 				low = mid +1;			
 				ans = Math.max(ans, mid);
-			}else {
-				ans = Math.max(ans, mid);
-				break;
 			}
+//			else {
+//				ans = Math.max(ans, mid);
+//				break;
+//			}
 		}
 		
 		System.out.println(ans == Long.MIN_VALUE ? 0:ans);
