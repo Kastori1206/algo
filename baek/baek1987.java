@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 /*
- * 부분 합
+ * 알파벳
  * https://www.acmicpc.net/problem/1987
  */
 public class baek1987 {
