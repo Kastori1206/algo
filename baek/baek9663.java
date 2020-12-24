@@ -27,7 +27,6 @@ public class baek9663 {
 	}
 
 	private static void go(int r, int c) {
-		System.out.println(r + " " + c);
 		if (r == N - 1) {
 			ans++;
 			return;
