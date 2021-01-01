@@ -10,10 +10,13 @@ public class 네트워크 {
 	        int answer = 0;
 	        boolean[] visited = new boolean[n];
 	        for(int i =0;i<n;i++){
+	        	//방문한 네트워크면
 	            if(visited[i]){
 	               continue; 
 	            }
+	            //같은네트워크 검사
 	            dfs(n,i,computers,visited);
+	            //네트워크 증가
 	            answer++;
 	        }
 	        return answer;
