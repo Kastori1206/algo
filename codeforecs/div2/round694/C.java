@@ -20,7 +20,6 @@ public class C {
 			int[] c = new int[m+1];
 			int[] want = new int[m+1];
 			
-			boolean[] visited = new boolean[m+1];
 			st= new StringTokenizer(br.readLine());
 			
 			for(int i =0;i<n;i++) {
@@ -32,42 +31,19 @@ public class C {
 			for(int i =1;i<=m;i++) {
 				c[i] = Integer.parseInt(st.nextToken());
 			}
-			
-			
+						
 			long ans =0;
-			int cnt =0;
+			int present =1;
 			for(int i =m;i>=0;i--) {
-				if(cnt!=m) {
-					while(want[i]>0) {
-						boolean flag = false;
-						for(int j =1;j<=m;j++) {
-							if(visited[j]) {
-								continue;
-							}
-							
-							if(c[i] > c[j]) {
-								ans+=c[j];
-								visited[j] = true;
-								cnt++;
-								want[i]--;
-								flag = true;
-								break;
-							}else {
-								break;
-							}
-						}
-						if(!flag) {
-							ans+=c[i];
-							want[i]--;
-						}
-					}					
-				}else {
-					while(want[i]>0) {
-						ans+= c[i];
-						want[i] --;
-					}					
+				while(want[i] >0) {
+					if(i>=present) {
+						ans += c[present];
+						present++;
+					}else {
+						ans +=c[i];
+					}
+					want[i]--;
 				}
-				
 			}
 			System.out.println(ans);
 		}
