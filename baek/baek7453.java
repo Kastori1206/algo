@@ -23,10 +23,7 @@ public class baek7453 {
 				nums[i][j] = Integer.parseInt(st.nextToken());				
 			}
 		}
-		
-		
-		int ans = 0;
-		
+				
 		int[] AB = new int[N*N];
 		int[] CD = new int[N*N];
 		for(int i =0;i<N;i++) {		
@@ -36,21 +33,45 @@ public class baek7453 {
 			}
 		}
 		
-		Arrays.sort(AB);
 		Arrays.sort(CD);
-		int left = 0, right = N*N-1;
-		int answer = 0;
-		while(left<= right) {
-			long sum = AB[left] + CD[right];
-			if(sum>0) {
-				right--;				
-			}else if(sum<0) {
-				left++;
-			}else if(sum==0) {
-				answer++;
-			}
+		
+		long answer = 0;
+		for(int i =0;i<N*N;i++) {
+			int high = upperBound(CD, -AB[i]);
+			int low = lowerBound(CD, -AB[i]);
+			answer+= high -low;
 		}
 		System.out.println(answer);
 
 	}
+	  public static int lowerBound(int[] array,  int value) {
+	        int low = 0;
+	        int high = array.length;
+	        int mid;
+	        while (low < high) {
+	        	mid = (low+high)>>1;
+	        	if (value <= array[mid]) {
+	                high = mid;
+	            } else {
+	                low = mid + 1;
+	            }
+	        }
+	        return low;
+	    }
+
+	public static int upperBound(int[] array, int value) {
+        int low = 0;
+        int high = array.length;
+        int mid;
+        while (low < high) {
+        	mid = (low+high) >> 1;
+        	if (value >= array[mid]) {
+                low = mid + 1;
+            } else {
+                high = mid;
+            }
+        }
+        return low;
+    }
+
 }
