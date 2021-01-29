@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 /*
- * A. Nezzar and Colorful Balls
+ * A. Nezzar and Colorful Balls 
  */
 public class A {
 	public static void main(String[] args) throws Exception{
