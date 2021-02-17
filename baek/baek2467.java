@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 /*
- * 용액
+ * 용액 
  * https://www.acmicpc.net/problem/2467
  */
 public class baek2467 {
