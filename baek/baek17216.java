@@ -20,6 +20,7 @@ public class baek17216 {
 		arr = new int[N];
 		dp = new int[N];
 		st = new StringTokenizer(br.readLine());
+		long answer = Integer.MIN_VALUE;
 
 		for (int i = 0; i < N; i++) {
 			arr[i] = Integer.parseInt(st.nextToken());
@@ -29,11 +30,8 @@ public class baek17216 {
 					dp[i] = Math.max(dp[i], dp[k] + arr[i]);
 				}
 			}
-		}
-		long answer = Integer.MIN_VALUE;
-		for (int i = 0; i < N; i++) {
 			answer = Math.max(answer, dp[i]);
-		}
+		}		
 
 		System.out.println(answer);
 	}
