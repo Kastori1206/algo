@@ -32,7 +32,6 @@ public class baek1525 {
                 if(num ==0){
                     start = new Point(r,c,0);
                 }
-
             }
         }
 
