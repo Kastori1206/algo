@@ -1,7 +1,16 @@
 package programmers;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
+/*
+ * 순위검색
+ * https://programmers.co.kr/learn/courses/30/lessons/72412
+ */
 public class 순위검색 {
 	public static void main(String[] args) {
 		String[] info = { "java backend junior pizza 150", "python frontend senior chicken 210",
@@ -11,70 +20,80 @@ public class 순위검색 {
 				"python and frontend and senior and chicken 200", "cpp and - and senior and pizza 250",
 				"- and backend and senior and - 150", "- and - and - and chicken 100", "- and - and - and - 150" };
 		System.out.println(Arrays.toString(solution(info, query)));
+//		solution(info, query);
 	}
-	static List<String> combiResult;
+
 	public static int[] solution(String[] info, String[] query) {
-		int N = info.length;
-		HashMap<String, List<Integer>> table = new HashMap<>();
-		for (int i = 0; i < N; i++) {
-			List<Integer> scores = null;
-			String[] temp = info[i].split(" ");
-			String[] row = new String[5];
-			for(int j =0;j<4;j++) {
-				row[j] = temp[j];
-			}
-			row[4] = "-";
-			int score = Integer.parseInt(temp[4]);
-			
-			System.out.println("row: " + Arrays.toString(row));
-			for (int j = 0; j < temp.length; j++) {
-				combiResult = new ArrayList<>();
-				String[] result = new String[4];
-				combi( 0, 0,j,row,result);
-				for(String s : combiResult) {
-					
-					System.out.println(s);					
-				}
-//				for(int k = 0;k<combiResult.size();k++) {
-//					List<String> list = new ArrayList<String>();
-//					list.addAll(combiResult);
-//					for(int l = )
-//				}
-			}
-			System.out.println("===============================");
-
+		int[] answer = new int[query.length];
+		Map<String, List<Integer>> map = new HashMap<String, List<Integer>>();
+		for (int i = 0; i < info.length; i++) {
+			Input(map, info[i]);
+		}
+		List<Integer> empty = new ArrayList<>();
+		for (Map.Entry<String, List<Integer>> entry : map.entrySet()) {
+			entry.getValue().sort(null);
 		}
 
-		String[][] querys = new String[query.length][5];
 		for (int i = 0; i < query.length; i++) {
-			querys[i] = ((query[i].replace("and", "")).replace("  ", " ")).split(" ");
-			String lng = querys[i][0];
-			String skill = querys[i][1];
-			String career = querys[i][2];
-			String food = querys[i][3];
-			String score = querys[i][4];
+			int endPoint = query[i].lastIndexOf(" ") + 1;
+			String q = query[i].substring(0, endPoint - 1).replaceAll(" and ", "");
+			int score = Integer.parseInt(query[i].substring(endPoint));
+
+			List<Integer> scores = map.getOrDefault(q, empty);
+			// 이분탐색
+			int start = 0, end = scores.size();
+
+			while (start < end) {
+				// 중간 index 구하기
+				int mid = (start + end) / 2;
+				if (scores.get(mid) < score) {
+					start = mid + 1;
+				} else {
+					end = mid;
+				}
+			}
+			answer[i] = scores.size() - start;
 
 		}
-
-		int[] answer = {};
 
 		return answer;
 	}
-	private static void combi(int cur, int index,int r, String[] row,String[] result) {
-		if(index ==r) {		
-			StringBuilder temp = new StringBuilder();
-//			for(int i =0;i<4;i++) {
-//				if(result[i]==null) {
-//					result[i] = "-";
-//				}				
+
+//	// 전체 경우의 수 키로 저장
+//	private static void setMap(Map<String, List<Integer>> map) {
+//		String language[] = { "cpp", "java", "python", "-" };
+//		String position[] = { "backend", "frontend", "-" };
+//		String career[] = { "junior", "senior", "-" };
+//		String soulfood[] = { "chicken", "pizza", "-" };
+//
+//		StringBuilder key;
+//		for (int i = 0; i < language.length; i++) {
+//			for (int j = 0; j < position.length; j++) {
+//				for (int k = 0; k < career.length; k++) {
+//					for (int l = 0; l < soulfood.length; l++) {
+//						key = new StringBuilder();
+//						key.append(language[i]).append(position[j]).append(career[k]).append(soulfood[l]);
+//						map.put(key.toString(), new ArrayList<Integer>());
+//					}
+//				}
 //			}
-			temp.append(result[0]).append(" and ").append(result[1]).append(" and ").append(result[2]).append(" and ").append(result[3]).append(" and ");
-			combiResult.add(temp.toString());
-			return;
-		}	
-		for(int i=cur;i<row.length;i++) {
-			result[index] = row[i];
-			combi(i+1, index+1,r, row, result);
+//		}
+//	}
+
+	private static void Input(Map<String, List<Integer>> map, String info) {
+		int endPoint = info.lastIndexOf(" ") + 1;
+		int score = Integer.parseInt(info.substring(endPoint));
+		String[] q = info.substring(0, endPoint - 1).split(" ");
+		for (int i = 0; i < 1 << 4; i++) {
+			StringBuilder str = new StringBuilder();
+			for (int j = 0; j < 4; j++) {
+				if ((i & 1 << j) != 0) {
+					str.append(q[j]);
+				} else {
+					str.append("-");
+				}
+			}
+			map.computeIfAbsent(str.toString(), s -> new ArrayList<>()).add(score);
 		}
 	}
 }
