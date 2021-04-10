@@ -2,10 +2,8 @@ package baek;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
@@ -23,7 +21,6 @@ public class baek16137 {
 			this.c = c;
 			this.t = t;
 		}
-
 	}
 
 	static int n, m;
@@ -66,6 +63,7 @@ public class baek16137 {
 		System.out.println(ans);
 	}
 
+	//가로세로 교차하는 지점인지 확인
 	private static boolean check(int r, int c) {
 		boolean col = false;
 		if (c - 1 >= 0 && map[r][c - 1] == 0) {
@@ -91,7 +89,6 @@ public class baek16137 {
 				Arrays.fill(dist[r][c], -1);
 			}
 		}
-
 		Queue<Point> q = new LinkedList<>();
 		q.add(new Point(0, 0, 0));
 		dist[0][0][0] = 0;
@@ -124,9 +121,7 @@ public class baek16137 {
 								q.add(new Point(nr, nc, nt));
 							}
 						}
-
 					}
-
 				}
 			}
 		}
