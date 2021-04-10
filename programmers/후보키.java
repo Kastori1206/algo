@@ -42,7 +42,7 @@ public class 후보키 {
             //유일성 검사
             if(flag){
                 //최소성 검사
-                bolean chk = true;
+                boolean chk = true;
                 for(Integer a : temp){
                     if((a&i)==a){
                         chk= false;
