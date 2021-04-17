@@ -8,43 +8,60 @@ import java.util.*;
  */
 public class 순위 {
 	public static void main(String[] args) {
-		
+		int n =5;
+		int[][] results = new int[][]{
+				{4,3},
+				{4,2},
+				{3,2},
+				{1,2},
+				{2,5}
+		};
+		System.out.println(solution(n,results));
 	}
-	public int solution(int n, int[][] results) {
+
+	public static int solution(int n, int[][] results) {
+		final int INF = (int) 1e9; //무한을 의미하는 값 10억
+
 		int answer = 0;
-		int len = results.length;
-		List<Integer> adj[] = new ArrayList[len+1];
-		int[] indegree = new int[len];
-		
-		for(int i =0;i<len+1;i++) {
-			adj[i] = new ArrayList<Integer>();
+
+		int[][] graph = new int[n+1][n+1];
+
+		for(int i =0;i<=results.length; i++){
+			Arrays.fill(graph[i],INF);
 		}
-				
-		for(int i =0;i<len;i++) {
+
+		for(int i =0;i<results.length;i++){
 			int win = results[i][0];
 			int lose = results[i][1];
-			
-			adj[lose].add(win);
-			indegree[win] ++;
+			graph[win][lose] = 1;
+			graph[lose][win] = -1;
 		}
-		
-		Queue<Integer> q = new LinkedList<Integer>();
-		
-		for(int i =0;i<len;i++) {
-			if(indegree[i] == 0) {
-				q.offer(i);
+
+		for(int k = 1; k<=n;k++){
+			for(int a = 1; a<=n; a++){
+				for(int b = 1; b<=n;b++){
+					if(graph[a][b] == INF){
+						if(graph[a][k] == 1 && graph[k][b] == 1){
+							graph[a][b] = 1;
+						}
+						if(graph[a][k] == -1 && graph[k][b] == -1){
+							graph[a][b] = -1;
+						}
+					}
+				}
 			}
 		}
-		
-		while(!q.isEmpty()) {
-			int temp = q.poll();
-			
-			for(int i =0;i<adj[temp].size();i++) {
-				int next = adj[temp].get(i);
-				indegree[next]--;
-				if(indegree[next] == 0) {
-					q.offer(next);
+
+		for(int i = 1;i<=n;i++){
+			boolean flag = false;
+			for(int j = 1; j<=n;j++){
+				if (i!= j && graph[i][j] == INF){
+					flag = true;
+					break;
 				}
+			}
+			if(!flag){
+				answer++;
 			}
 		}
 		return answer;
