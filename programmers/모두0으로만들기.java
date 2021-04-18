@@ -2,64 +2,62 @@ package programmers;
 
 import java.util.*;
 
-public class 모두0으로만들기{
-    public static void main(String[] args) {
-        int[] a= new int[]{-5,0,2,1,2};
-        int[][] edges = new int[][]{
-                {0,1},
-                {3,4},
-                {2,3},
-                {0,3},
-        };
-        System.out.println(solution(a,edges));
-    }
-    public static long solution(int[] a, int[][] edges) {
-        long answer =0;
-        int n = a.length;
-        List<Integer> [] adj = new ArrayList[n];
+public class 모두0으로만들기 {
+	public static void main(String[] args) {
+		int[] a = new int[] { -5, 0, 2, 1, 2 };
+		int[][] edges = new int[][] { { 0, 1 }, { 3, 4 }, { 2, 3 }, { 0, 3 } };
+		System.out.println(solution(a, edges));
+	}
 
-        for(int i =0;i<n;i++){
-            adj[i] = new ArrayList<>();
-        }
+	static List<Integer>[] adj;
+	static long answer;
 
-        for(int i =0;i<edges.length;i++){
-            int u = edges[i][0];
-            int v = edges[i][1];
+	public static long solution(int[] a, int[][] edges) {
+		answer = 0;
+		int n = a.length;
+		long sum = 0;
+		boolean flag = true;
+		long[] temp = new long[n];
+		for (int i = 0; i < n; i++) {
+			if (a[i] != 0) {
+				flag = false;
+			}
+			sum += (long) a[i];
+			temp[i] = a[i];
+		}
+		if (flag) {
+			return 0;
+		} else if (sum != 0) {
+			return -1;
+		}
+		adj = new ArrayList[n];
+		for (int i = 0; i < n; i++) {
+			adj[i] = new ArrayList<>();
+		}
+		for (int i = 0; i < edges.length; i++) {
+			int u = edges[i][0];
+			int v = edges[i][1];
 
-            adj[u].add(v);
-            adj[v].add(u);
-        }
+			adj[u].add(v);
+			adj[v].add(u);
+		}
+		dfs(0, -1, temp);
 
-        boolean[] visited = new boolean[a.length];
-        Queue<Integer> q = new LinkedList<>();
-        q.offer(0);
-        visited[0] = true;
-        long w = a[0];
-        while(!q.isEmpty()){
-            int v = q.poll();
-            System.out.println("v : " + v);
-            System.out.println(Arrays.toString(a));
-            int ww = 0;
-            for(int next : adj[v]){
-                if(visited[next]){
-                    continue;
-                }
-                if(a[next] == 0){
-                    continue;
-                }
+		return answer;
+	}
 
-                q.offer(next);
-                ww += a[next];
-//                answer += Math.abs(a[next]);
+	public static void dfs(int u, int p, long[] a) {
+		for (int next : adj[u]) {
+			if (next == p) {
+				continue;
+			}
+			if (adj[next].size() != 1) {
+				dfs(next, u, a);
+			}
 
-                a[next] = 0;
-                visited[next] = true;
-            }
-            answer += Math.abs(ww);
-            w+=ww;
-            System.out.println(w + " " +ww);
-
-        }
-        return answer;
-    }
+			answer += (long) Math.abs(a[next]);
+			a[u] += a[next];
+			a[next] = 0;
+		}
+	}
 }
