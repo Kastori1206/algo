@@ -12,6 +12,16 @@ public class 모두0으로만들기 {
 	static List<Integer>[] adj;
 	static long answer;
 
+	static class Node {
+		int cur, p;
+
+		public Node(int cur, int p) {
+			super();
+			this.cur = cur;
+			this.p = p;
+		}
+	}
+
 	public static long solution(int[] a, int[][] edges) {
 		answer = 0;
 		int n = a.length;
@@ -25,9 +35,8 @@ public class 모두0으로만들기 {
 			sum += (long) a[i];
 			temp[i] = a[i];
 		}
-		if (flag) {
-			return 0;
-		} else if (sum != 0) {
+
+		if (sum != 0) {
 			return -1;
 		}
 		adj = new ArrayList[n];
@@ -41,23 +50,27 @@ public class 모두0으로만들기 {
 			adj[u].add(v);
 			adj[v].add(u);
 		}
-		dfs(0, -1, temp);
+		Stack<Node> s = new Stack<>();
+		boolean[] visited = new boolean[n];
+		s.push(new Node(0, 0));
+		while (!s.isEmpty()) {
+			Node v = s.pop();
 
-		return answer;
-	}
-
-	public static void dfs(int u, int p, long[] a) {
-		for (int next : adj[u]) {
-			if (next == p) {
+			if (visited[v.cur]) {
+				answer += (long) Math.abs(temp[v.cur]);
+				temp[v.p] += temp[v.cur];
+				a[v.cur] = 0;
 				continue;
 			}
-			if (adj[next].size() != 1) {
-				dfs(next, u, a);
+			visited[v.cur] = true;
+			s.push(new Node(v.cur, v.p));
+			for (int next : adj[v.cur]) {
+				if (!visited[next]) {
+					s.push(new Node(next, v.cur));
+				}
 			}
-
-			answer += (long) Math.abs(a[next]);
-			a[u] += a[next];
-			a[next] = 0;
 		}
+		return answer;
+
 	}
 }
