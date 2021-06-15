@@ -29,23 +29,27 @@ public class baek16161 {
 			if (arr[right] < arr[right + 1]) {
 				right++;
 			} else if (arr[right] == arr[right + 1]) {
-				for (int i = 0; i <= right - left; i++) {
+				int i = 0;
+				for (i = 0; i <= right - left; i++) {
 					if (right + 1 + i >= N || arr[right - i] != arr[right + 1 + i]) {
-						answer = Math.max(answer, i * 2);
 						break;
 					}
 				}
-				left = right + 1;
+				answer = Math.max(answer, i * 2);
+				
 				right++;
+				left = right;
 			} else {
-				for (int i = 0; i < right - left; i++) {
+				int i = 0;
+				for (i = 0; i < right - left; i++) {
 					if (right + 1 + i >= N || arr[right - 1 - i] != arr[right + 1 + i]) {
-						answer = Math.max(answer, 2 * i + 1);
 						break;
 					}
 				}
-				left = right + 1;
+				answer = Math.max(answer, i * 2 + 1);
+
 				right++;
+				left = right;
 			}
 		}
 		System.out.println(answer);
