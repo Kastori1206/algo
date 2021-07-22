@@ -17,7 +17,6 @@ public class baek1916 {
             this.v = v;
             this.w = w;
         }
-
         @Override
         public String toString() {
             return "Node{" +
