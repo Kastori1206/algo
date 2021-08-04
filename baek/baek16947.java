@@ -11,8 +11,7 @@ import java.util.*;
 public class baek16947 {
     static int N;
     static List<Integer>[] adj;
-    static boolean[] visited, isCycle, finish;
-    static int[] parent;
+    static boolean[] visited, isCycle;
 
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -85,8 +84,7 @@ public class baek16947 {
                 if (dfs(cur, next, start)) {
                     return true;
                 }
-            }
-            else if (next != pre && next == start) {
+            } else if (next != pre && next == start) {
                 return true;
             }
         }
