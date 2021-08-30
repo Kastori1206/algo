@@ -5,7 +5,8 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- *
+ * 모음 사전
+ * https://programmers.co.kr/learn/courses/30/lessons/84512
  */
 public class 모음사전 {
     public static void main(String[] args) {
@@ -53,22 +54,3 @@ public class 모음사전 {
         }
     }
 }
-
-/**
- A
- AA
- AAA
- AAAA
- AAAAA
- AAAAE
- AAAAI
- AAAAO
- AAAAU
- AAAE
- AAAI
- AAAO
- AAAU
- AE
-
-
- */
