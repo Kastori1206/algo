@@ -10,7 +10,6 @@ import java.util.StringTokenizer;
  */
 public class baek13172 {
     static final int MOD = 1000000007;
-
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
@@ -27,7 +26,7 @@ public class baek13172 {
             N /= g;
             S /= g;
 
-            answer += (S * pow(N, MOD - 2)) %MOD;
+            answer += (S * pow(N, MOD - 2)) % MOD;
             answer %= MOD;
         }
 
@@ -35,6 +34,7 @@ public class baek13172 {
 
 
     }
+
     private static long gcd(long a, long b) {
         long tmp, n;
         if (a < b) {
@@ -49,18 +49,15 @@ public class baek13172 {
         }
         return a;
     }
-
-
-
-
+    
     public static long pow(long a, int b) {
         if (b == 0) {
             return 1;
         }
         long res = pow(a, b / 2);
         if (b % 2 == 0) {
-            return (res%MOD * res%MOD) % MOD;
+            return (res % MOD * res % MOD) % MOD;
         }
-        return (res%MOD * res%MOD * a%MOD) % MOD;
+        return (res % MOD * res % MOD * a % MOD) % MOD;
     }
 }
