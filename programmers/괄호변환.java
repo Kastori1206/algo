@@ -14,7 +14,6 @@ public class 괄호변환 {
     public static String solution(String p) {
         if (p.equals("")) {
             return "";
-
         }
 
         boolean flag = check(p);
@@ -45,7 +44,7 @@ public class 괄호변환 {
                 left++;
             } else {
                 right++;
-                if (left<right) {
+                if (left < right) {
                     res = false;
                 }
             }
@@ -54,7 +53,6 @@ public class 괄호변환 {
                 return res;
             }
         }
-
         return true;
     }
 }

@@ -44,6 +44,7 @@ public class 모음사전 {
             for (int i = 0; i < n; i++) {
                 temp.append(res[i]);
             }
+
             list.add(temp.toString());
             return;
         }
