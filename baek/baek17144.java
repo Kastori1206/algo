@@ -24,6 +24,7 @@ public class baek17144 {
             this.c = c;
             this.dust = dust;
         }
+
     }
 
     static int[][] map;
