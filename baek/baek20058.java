@@ -7,198 +7,176 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 
 /**
- * 마법사 상어와 파이어스톰
+ * 마법사 상어와 파이어스톰 
  * https://www.acmicpc.net/problem/20058
  */
 public class baek20058 {
-    static class Node{
-        int r;
-        int c;
+	static class Node {
+		int r;
+		int c;
 
-        public Node(int r, int c) {
-            this.r = r;
-            this.c = c;
-        }
+		public Node(int r, int c) {
+			this.r = r;
+			this.c = c;
+		}
 
-        @Override
-        public String toString() {
-            return "Node{" +
-                    "r=" + r +
-                    ", c=" + c +
-                    '}';
-        }
-    }
-    static int N, Q, L, len, sum;
-    static int[] answer;
-    static int[][] map;
-    static boolean[][] visited;
-    static int[] dr = {-1, 1, 0, 0};
-    static int[] dc = {0, 0, -1, 1};
-    public static void main(String[] args) throws Exception{
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine());
+		@Override
+		public String toString() {
+			return "Node{" + "r=" + r + ", c=" + c + '}';
+		}
+	}
 
-        N = Integer.parseInt(st.nextToken());
-        Q = Integer.parseInt(st.nextToken());
-        len = (int) Math.pow(2, N);
+	static int N, Q, L, len, sum;
+	static int[] answer;
+	static int[][] map;
+	static boolean[][] visited;
+	static int[] dr = { -1, 1, 0, 0 };
+	static int[] dc = { 0, 0, -1, 1 };
 
-        map = new int[len][len];
-        for (int r = 0; r < len; r++) {
-            st = new StringTokenizer(br.readLine());
-            for (int c = 0; c < len; c++) {
-                map[r][c] = Integer.parseInt(st.nextToken());
-            }
-        }
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
 
-        answer = new int[2];
-        st = new StringTokenizer(br.readLine());
+		N = Integer.parseInt(st.nextToken());
+		Q = Integer.parseInt(st.nextToken());
+		len = (int) Math.pow(2, N);
 
-        for (int i = 0; i < Q; i++) {
-            L = Integer.parseInt(st.nextToken());
-            divide(L);
-            melt();
-        }
-        for (int r = 0; r < len; r++) {
-            for (int c = 0; c < len; c++) {
-                answer[0] +=map[r][c];
-            }
-        }
-        visited = new boolean[len][len];
-        for (int r = 0; r < len; r++) {
-            for (int c = 0; c < len; c++) {
-                if(visited[r][c] || map[r][c] ==0){
-                    continue;
-                }
-                bfs(r, c);
-            }
-        }
-        System.out.println(answer[0]);
-        System.out.println(answer[1]);
+		map = new int[len][len];
+		for (int r = 0; r < len; r++) {
+			st = new StringTokenizer(br.readLine());
+			for (int c = 0; c < len; c++) {
+				map[r][c] = Integer.parseInt(st.nextToken());
+			}
+		}
 
-    }
-    static void divide(int n) {
-        int pow = (int) Math.pow(2, n);
-        System.out.println(n);
-        if (n == N) {
-            rotate(0, 0, len - 1, len - 1, pow);
-        }else if(n!=0) {
-            for (int r = 0; r < len; r += pow) {
-                for (int c = 0; c < len; c += pow) {
-                    rotate(r, c, r + pow - 1, c + pow - 1, pow);
-                }
-            }
-        }
-        print();
+		answer = new int[2];
+		st = new StringTokenizer(br.readLine());
 
-    }
-    static void rotate(int sr, int sc, int er, int ec, int n){
-        n /= 2;
-        int cnt = 0;
-        while (cnt <n) {
-            int srr = sr + cnt;
-            int scc = sc + cnt;
-            int err = er - cnt;
-            int ecc = ec - cnt;
+		for (int i = 0; i < Q; i++) {
+			L = Integer.parseInt(st.nextToken());
+			rotate((int) Math.pow(2, L));
+			melt();
+		}
+		for (int r = 0; r < len; r++) {
+			for (int c = 0; c < len; c++) {
+				answer[0] += map[r][c];
+			}
+		}
+		visited = new boolean[len][len];
+		for (int r = 0; r < len; r++) {
+			for (int c = 0; c < len; c++) {
+				if (visited[r][c] || map[r][c] == 0) {
+					continue;
+				}
+				bfs(r, c);
+			}
+		}
+		System.out.println(answer[0]);
+		System.out.println(answer[1]);
 
-            int pre = map[srr][scc];
+	}
 
-            for (int c = scc+1; c <= ecc; c++) {
-                int temp = map[srr][c];
-                map[srr][c] = pre;
-                pre = temp;
-            }
-            for (int r = srr+1; r <= err; r++) {
-                int temp = map[r][ecc];
-                map[r][ecc] = pre;
-                pre = temp;
-            }
+	private static void rotate(int n) {
+		int[][] map2 = new int[len][len];
+		// 배열 90도 시계방향 회전시키기
+		for (int r = 0; r < len; r += n) {
+			for (int c = 0; c < len; c += n) {
+				int sr = r;
+				int sc = c;
+				for (int cc = c; cc < c + n; cc++) {
+					sc = c;
+					for (int rr = r + n - 1; rr >= r; rr--) {
+						map2[sr][sc++] = map[rr][cc];
+					}
+					sr++;
+				}
+			}
+		}
 
-            for (int c = ecc-1; c >= scc; c--) {
-                int temp = map[err][c];
-                map[err][c] = pre;
-                pre = temp;
-            }
+		for (int r = 0; r < len; r++) {
+			for (int c = 0; c < len; c++) {
+				map[r][c] = map2[r][c];
+			}
+		}
 
-            for (int r = err-1; r >= srr; r--) {
-                int temp = map[r][scc];
-                map[r][scc] = pre;
-                pre = temp;
-            }
-            cnt++;
-        }
-    }
+	}
 
-    static void melt() {
-        Queue<Node> q = new LinkedList<>();
-        for (int r = 0; r < len; r++) {
-            for (int c = 0; c <len; c++) {
-                int cnt =0;
-                for (int d = 0; d < 4; d++) {
-                    int nr = r + dr[d];
-                    int nc = c + dc[d];
+	// 얼음 녹이기
+	static void melt() {
+		Queue<Node> q = new LinkedList<>();
+		for (int r = 0; r < len; r++) {
+			for (int c = 0; c < len; c++) {
+				if (map[r][c] == 0) {
+					continue;
+				}
+				int cnt = 0;
+				for (int d = 0; d < 4; d++) {
+					int nr = r + dr[d];
+					int nc = c + dc[d];
 
-                    if (!isIn(nr, nc)) {
-                        continue;
-                    }
-                    if(map[nr][nc] <= 0){
-                        continue;
-                    }
-                    cnt++;
-                }
-                if (cnt < 3) {
-                    q.offer(new Node(r, c));
-                }
-            }
-        }
-        while (!q.isEmpty()) {
-            Node node = q.poll();
+					if (!isIn(nr, nc)) {
+						continue;
+					}
+					if (map[nr][nc] <= 0) {
+						continue;
+					}
+					cnt++;
+				}
+				if (cnt < 3) {
+					q.offer(new Node(r, c));
+				}
+			}
+		}
+		while (!q.isEmpty()) {
+			Node node = q.poll();
 
-            if(map[node.r][node.c] > 0){
-                map[node.r][node.c]--;
-            }
-        }
-    }
+			if (map[node.r][node.c] > 0) {
+				map[node.r][node.c]--;
+			}
+		}
+	}
 
+	static void bfs(int r, int c) {
+		Queue<Node> q = new LinkedList<>();
+		q.offer(new Node(r, c));
+		visited[r][c] = true;
+		int size = 1;
+		while (!q.isEmpty()) {
+			Node cur = q.poll();
 
-    static void bfs(int r, int c){
-        Queue<Node> q = new LinkedList<>();
-        q.offer(new Node(r, c));
-        visited[r][c] = true;
-        int size = 1;
-        while (!q.isEmpty()) {
-            Node cur = q.poll();
+			for (int d = 0; d < 4; d++) {
+				int nr = cur.r + dr[d];
+				int nc = cur.c + dc[d];
 
-            for (int d = 0; d < 4; d++) {
-                int nr = cur.r + dr[d];
-                int nc = cur.c + dc[d];
+				if (!isIn(nr, nc)) {
+					continue;
+				}
+				if (visited[nr][nc]) {
+					continue;
+				}
+				if (map[nr][nc] <= 0) {
+					continue;
+				}
+				size++;
+				visited[nr][nc] = true;
+				q.offer(new Node(nr, nc));
+			}
 
-                if (!isIn(nr, nc)) {
-                    continue;
-                }
-                if (visited[nr][nc]) {
-                    continue;
-                }
-                if (map[nr][nc] <= 0) {
-                    continue;
-                }
-                size ++;
-                visited[nr][nc] = true;
-                q.offer(new Node(nr, nc));
-            }
+			answer[1] = Math.max(answer[1], size);
+		}
+	}
 
-            answer[1] = Math.max(answer[1], size);
-        }
-    }
-    static boolean isIn(int r, int c) {
-        return r >= 0 && c >= 0 && r < len && c < len;
-    }
-    static void print(){
-        System.out.println("============");
-        for (int[] ints : map) {
-            for (int anInt : ints) {
-                System.out.print(anInt+ " ");
-            }
-            System.out.println();
-        }
-    }
+	static boolean isIn(int r, int c) {
+		return r >= 0 && c >= 0 && r < len && c < len;
+	}
+
+	static void print() {
+		System.out.println("============");
+		for (int[] ints : map) {
+			for (int anInt : ints) {
+				System.out.print(anInt + " ");
+			}
+			System.out.println();
+		}
+	}
 }
