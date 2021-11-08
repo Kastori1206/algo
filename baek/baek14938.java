@@ -9,7 +9,7 @@ import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
 /**
- * 서강그라운드 
+ * 서강그라운드
  * https://www.acmicpc.net/problem/14938
  */
 public class baek14938 {
