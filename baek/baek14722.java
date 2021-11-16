@@ -1,4 +1,4 @@
-package baek14722;
+package baek;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
  * 우유 도시
  * https://www.acmicpc.net/problem/14722
  */
-public class baek {
+public class baek14722 {
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
