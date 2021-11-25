@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.StringTokenizer;
 
 /**
- * 제자리 멀리뛰기 
+ * 제자리 멀리뛰기
  * https://www.acmicpc.net/problem/6209
  */
 public class baek6209 {
