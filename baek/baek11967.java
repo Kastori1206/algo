@@ -10,7 +10,8 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 
 /**
- * 불켜기 https://www.acmicpc.net/problem/11967
+ * 불켜기 
+ * https://www.acmicpc.net/problem/11967
  */
 public class baek11967 {
 	static class Node {
@@ -28,7 +29,7 @@ public class baek11967 {
 	static boolean[][] visited;
 	static boolean[][] switched;
 	static List<Node>[][] map;
-	static int N, M, answer;
+	static int N, M;
 
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -62,8 +63,6 @@ public class baek11967 {
 	static int bfs() {
 		int res = 0;
 		Queue<Node> q = new LinkedList<>();
-		boolean[][] visited = new boolean[N + 1][N + 1];
-		boolean[][] switched = new boolean[N + 1][N + 1];
 
 		q.offer(new Node(1, 1));
 
