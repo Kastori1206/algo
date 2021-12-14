@@ -35,7 +35,7 @@ public class baek2866 {
 
 	static int binarySearch() {
 		int res = C - 1;
-		int l = 1, r = C - 1;
+		int l = 0, r = C - 1;
 		while (l <= r) {
 			int mid = (l + r) / 2;
 			if (check(mid)) {
@@ -52,14 +52,14 @@ public class baek2866 {
 		Set<String> set = new HashSet<>();
 
 		for (int c = 0; c < C; c++) {
-			String str = "";
+			StringBuilder str = new StringBuilder();
 			for (int r = start + 1; r < R; r++) {
-				str += map[r][c];
+				str.append(map[r][c]);
 			}
-			if (set.contains(str)) {
+			if (set.contains(str.toString())) {
 				return true;
 			} else {
-				set.add(str);
+				set.add(str.toString());
 			}
 		}
 		return false;
