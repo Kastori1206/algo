@@ -2,6 +2,7 @@
 # https://www.acmicpc.net/problem/22862
 
 from sys import stdin
+
 input = stdin.readline
 
 N, K = map(int, input().split())
@@ -13,24 +14,23 @@ odd = 0
 even = 0
 
 for start in range(N):
-    while(odd<=K and end <N):
-        if S[end] %2 == 1:
+    while odd <= K and end < N:
+        if S[end] % 2 == 1:
             odd += 1
-        else :
+        else:
             even += 1
         end += 1
 
         if start == 0 and end == N:
             answer = even
             break
-    
+
     if odd == K + 1:
         answer = max(even, answer)
 
     if S[start] % 2 == 1:
         odd -= 1
-    else :
+    else:
         even -= 1
-    
 
 print(answer)
