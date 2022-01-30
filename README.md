@@ -1,13 +1,13 @@
 # 목차
 
-- ### [SW Expert](https://gitlab.com/kastori1990/algo/-/tree/master/swea)
+- ### [SW Expert](https://github.com/Kastori1206/algo/tree/master/swea)
 
-- ### [BaekJoon](https://gitlab.com/kastori1990/algo/-/tree/master/baek)
+- ### [BaekJoon](https://github.com/Kastori1206/algo/tree/master/codeforces)
 
-- ### [Jungol](https://gitlab.com/kastori1990/algo/-/tree/master/jungol) 
+- ### [Jungol](https://github.com/Kastori1206/algo/tree/master/jungol) 
 
-- ### [Programmers](https://gitlab.com/kastori1990/algo/-/tree/master/programmers) 
+- ### [Programmers](https://github.com/Kastori1206/algo/tree/master/programmers) 
 
-- ### [codeforce](https://gitlab.com/kastori1990/algo/-/tree/master/codeforces)
+- ### [codeforce](https://github.com/Kastori1206/algo/tree/master/codeforces)
 
 
