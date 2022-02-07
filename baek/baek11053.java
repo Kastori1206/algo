@@ -36,6 +36,6 @@ public class baek11053 {
             answer = Math.max(answer, dp[i]);
         }
 
-        System.out.println(answer);
+        System.out.println(answer); 
     }
 }
