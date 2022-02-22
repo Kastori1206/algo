@@ -16,11 +16,12 @@ public class baek9465 {
 
         int T = Integer.parseInt(br.readLine());
 
+        int[][] arr = new int[100001][2];
+        long[][] dp = new long[100001][3];
+
         for (int t = 0; t < T; t++) {
             int N = Integer.parseInt(br.readLine());
 
-            int[][] arr = new int[N + 1][2];
-            long[][] dp = new long[N + 1][3];
             for (int c = 0; c < 2; c++) {
                 st = new StringTokenizer(br.readLine());
                 for (int r = 1; r <= N; r++) {
@@ -42,7 +43,6 @@ public class baek9465 {
         }
 
         System.out.println(sb);
-
     }
 
     static long max(long a, long b) {
