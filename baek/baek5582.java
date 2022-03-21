@@ -26,6 +26,7 @@ public class baek5582 {
                 }
             }
         }
+
         System.out.println(answer);
     }
 }
