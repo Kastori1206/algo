@@ -2,11 +2,12 @@ package baek;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.StringTokenizer;
 
+/**
+ * 텔레포트 3
+ * https://www.acmicpc.net/problem/12908
+ */
 public class baek12908 {
     static class Node {
         int x1, y1, x2, y2;
@@ -18,10 +19,12 @@ public class baek12908 {
             this.y2 = y2;
         }
     }
+
     static Node[] map;
     static long answer;
     static int sx, sy, ex, ey;
     static boolean[] visited;
+
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -59,8 +62,8 @@ public class baek12908 {
             int x = sx;
             int y = sy;
             for (int i = 0; i < output.length; i++) {
-                res = dist(x, y, map[output[i]].x1, map[output[i]].y1);
-                if (map[output[i]].x2 == ex && map[output[i]].y2 == ey) {
+                res += dist(x, y, map[output[i]].x1, map[output[i]].y1);
+                if (output[i] == 6) {
                     break;
                 }
                 res += 10;
@@ -68,8 +71,6 @@ public class baek12908 {
                 y = map[output[i]].y2;
 
             }
-            System.out.println(Arrays.toString(output));
-            System.out.println(res);
             answer = Math.min(answer, res);
             return;
         }
@@ -83,6 +84,7 @@ public class baek12908 {
             visited[i] = false;
         }
     }
+
     static long dist(long x1, long y1, long x2, long y2) {
         return Math.abs(x1 - x2) + Math.abs(y1 - y2);
     }
