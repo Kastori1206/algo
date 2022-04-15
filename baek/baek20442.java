@@ -17,7 +17,6 @@ public class baek20442 {
         List<Integer> lk = new ArrayList<>();
         List<Integer> rk = new ArrayList<>();
 
-
         String str = br.readLine();
         int N = str.length();
         int lcnt = 0;
