@@ -2,8 +2,6 @@ package baek;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.StringTokenizer;
 
 /**
@@ -18,40 +16,36 @@ public class baek15565 {
         int N = Integer.parseInt(st.nextToken());
         int K = Integer.parseInt(st.nextToken());
 
-        int[] arr = new int[N];
-        List<Integer> list = new ArrayList<>();
+        int[] arr = new int[N + 1];
 
         st = new StringTokenizer(br.readLine());
 
-        for (int i = 0; i < N; i++) {
+        for (int i = 1; i <= N; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
-            if (arr[i] == 1) {
-                list.add(i);
-            }
         }
 
-        if (list.size() < K) {
-            System.out.println(-1);
-            return;
-        }
-
-        int answer = Integer.MAX_VALUE;
-
-        for (int l = 0; l < list.size(); l++) {
-            int r = l;
-            int cnt = 0;
-            while (r < list.size() && cnt < K) {
-                cnt++;
+        int r = 0;
+        int answer = -1;
+        int sum = 0;
+        for (int l = 1; l <= N; l++) {
+            while (r < N && sum < K) {
                 r++;
+                if (arr[r] == 1) {
+                    sum++;
+                }
             }
 
-            if (cnt == K) {
-                int ll = list.get(l);
-                int rr = list.get(r - 1);
-                answer = Math.min(answer, rr - ll + 1);
+            if (sum == K) {
+                if (answer == -1) {
+                    answer = r - l + 1;
+                }
+                answer = Math.min(answer, r - l + 1);
+            }
+
+            if (arr[l] == 1) {
+                sum--;
             }
         }
-
         System.out.println(answer);
     }
 }
