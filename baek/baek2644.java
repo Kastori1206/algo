@@ -6,6 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
+/**
+ * 촌수 계산
+ * https://www.acmicpc.net/problem/2644
+ */
 public class baek2644 {
     static int start, end, answer;
     static boolean[] visited;
@@ -44,11 +48,13 @@ public class baek2644 {
     static void dfs(int cur, int cnt) {
         visited[cur] = true;
         for (int next : adj[cur]) {
+            if (visited[next]) {
+                continue;
+            }
             if (next == end) {
                 answer = cnt + 1;
                 return;
             }
-
             dfs(next, cnt + 1);
         }
     }
