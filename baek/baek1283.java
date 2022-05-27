@@ -18,64 +18,46 @@ public class baek1283 {
         Set<Character> set = new HashSet<>();
 
         for (int i = 0; i < N; i++) {
-            String[] str = br.readLine().split(" ");
+            String answer = br.readLine();
+            String[] str = answer.split(" ");
             boolean flag = false;
-            char c = ' ';
+
             if (str.length > 1) {
                 for (int j = 0; j < str.length; j++) {
-                    c = str[j].charAt(0);
+                    char c = Character.toUpperCase(str[j].charAt(0));
                     if (set.contains(c)) {
                         continue;
                     }
-                    set.add(Character.toLowerCase(c));
-                    set.add(Character.toUpperCase(c));
+                    str[j] = "[" + str[j].charAt(0) + "]" + str[j].substring(1);
                     flag = true;
+                    set.add(c);
                     break;
                 }
+                answer = String.join(" ", str);
+
                 if (!flag) {
-                    for (int j = 0; j < str[0].length(); j++) {
-                        c = str[0].charAt(j);
-                        if (set.contains(c)) {
+                    for (int j = 0; j < answer.length(); j++) {
+                        char c = Character.toUpperCase(answer.charAt(j));
+                        if (c == ' ' || set.contains(c)) {
                             continue;
                         }
-                        set.add(Character.toLowerCase(c));
-                        set.add(Character.toUpperCase(c));
-                        flag = true;
+                        set.add(c);
+                        answer = answer.substring(0, j) + "[" + answer.charAt(j) + "]" + answer.substring(j + 1);
                         break;
                     }
                 }
-            }else{
+            } else {
                 for (int j = 0; j < str[0].length(); j++) {
-                    c = str[0].charAt(j);
+                    char c = Character.toUpperCase(str[0].charAt(j));
                     if (set.contains(c)) {
                         continue;
                     }
-                    set.add(Character.toLowerCase(c));
-                    set.add(Character.toUpperCase(c));
-                    flag = true;
+                    set.add(c);
+                    answer = str[0].substring(0, j) + "[" + str[0].charAt(j) + "]" + str[0].substring(j + 1);
                     break;
                 }
             }
-            if (flag) {
-                for (int j = 0; j < str.length; j++) {
-                    for (int k = 0; k < str[j].length(); k++) {
-                        char temp = str[j].charAt(k);
-                        if (temp == c) {
-                            sb.append("[").append(temp).append("]");
-                        } else {
-                            sb.append(temp);
-                        }
-                    }
-                    sb.append(" ");
-                }
-                sb.append("\n");
-            } else {
-                for (int j = 0; j < str.length; j++) {
-                    sb.append(str[i]).append(" ");
-                }
-                sb.append(" ");
-            }
-
+            sb.append(answer).append("\n");
         }
         System.out.println(sb);
     }
