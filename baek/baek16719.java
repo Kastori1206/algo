@@ -11,6 +11,7 @@ public class baek16719 {
     static String str;
     static boolean[] visited;
     static StringBuilder sb;
+
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         sb = new StringBuilder();
