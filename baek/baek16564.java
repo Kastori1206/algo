@@ -21,38 +21,32 @@ public class baek16564 {
         K = Integer.parseInt(st.nextToken());
 
         arr = new int[N];
+
         for (int i = 0; i < N; i++) {
             arr[i] = Integer.parseInt(br.readLine());
         }
 
         Arrays.sort(arr);
+        int answer = 0;
+        int l = arr[0];
+        int r = arr[N - 1] + K;
 
-        int l = 0;
-        int r = 2000000000;
-
-        while (l + 1 < r) {
+        while (l <= r) {
             int mid = (l + r) / 2;
 
-            if (check(mid)) {
-                l = mid;
-            } else {
-                r = mid;
-            }
-        }
-        System.out.println(l);
-    }
-
-    static boolean check(int mid) {
-        long sum = 0;
-
-        for (int i = 0; i < N; i++) {
-            if (arr[i] < mid) {
-                sum += (mid - arr[i]);
-                if (sum > K) {
-                    return false;
+            long sum = 0;
+            for (int i = 0; i < N; i++) {
+                if (arr[i] < mid) {
+                    sum += (mid - arr[i]);
                 }
             }
+            if (sum <= K) {
+                answer = Math.max(answer,mid);
+                l = mid + 1;
+            } else {
+                r = mid - 1;
+            }
         }
-        return true;
+        System.out.println(answer);
     }
 }
