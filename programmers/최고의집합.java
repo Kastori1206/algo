@@ -9,7 +9,7 @@ import java.util.Arrays;
 public class 최고의집합 {
     public static void main(String[] args) {
         System.out.println(Arrays.toString(solution(2, 9)));
-        System.out.println(Arrays.toString(solution(2, 1)));≠
+        System.out.println(Arrays.toString(solution(2, 1)));
         System.out.println(Arrays.toString(solution(2, 8)));
     }
     static public int[] solution(int n, int s) {
